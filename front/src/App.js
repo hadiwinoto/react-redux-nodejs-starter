@@ -26,7 +26,7 @@ const App = () => {
   const myStyle = {
     borderTop: "1px outset",
   };
-  
+
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
   const [showAdminBoard, setShowAdminBoard] = useState(false);
 
@@ -131,12 +131,10 @@ const App = () => {
                 <nav aria-label="breadcrumb">
                   <ol className="breadcrumb">
                     <li className="breadcrumb-item">Home</li>
-                    <li className="breadcrumb-item active" aria-current="page">Test</li>
                   </ol>
                 </nav>
             </div>
         </nav>
-
 
         <div className="container mt-3">
           <Switch>
