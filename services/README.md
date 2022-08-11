@@ -5,5 +5,5 @@ npm install
 
 ### Run
 ```
-node server.js
+nodemon start
 ```
