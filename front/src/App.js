@@ -58,15 +58,17 @@ const App = () => {
   return (
     <Router>
       <div>
-        <nav className="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <nav className="navbar navbar-expand-md navbar-light bg-white shadow-sm ml-0">
+              <a href="/">
+                  <img alt="Logo" src="https://system.rhr.co.id/images/risbaru.png" width="170"/>
+              </a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul>
-            <li className="nav-item">
+            <li className="nav-item ml-5">
               <Link to={"/home"} className="nav-link">
                 Home
               </Link>
