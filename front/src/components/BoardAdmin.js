@@ -30,9 +30,9 @@ const BoardAdmin = () => {
 
   return (
     <div className="container">
-      <header className="jumbotron">
-        <h3>{content}</h3>
-      </header>
+        <div className="card">
+            <h3>{content}</h3>
+        </div>
     </div>
   );
 };
