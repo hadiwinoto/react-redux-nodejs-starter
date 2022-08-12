@@ -27,6 +27,10 @@ const App = () => {
     borderTop: "1px outset",
   };
 
+  const styleNav = {
+      padding: "5px",
+  }
+
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
   const [showAdminBoard, setShowAdminBoard] = useState(false);
 
@@ -59,8 +63,8 @@ const App = () => {
     <Router>
       <div>
         <nav className="navbar navbar-expand-md navbar-light bg-white shadow-sm ml-0">
-              <a href="/">
-                  <img alt="Logo" src="https://system.rhr.co.id/images/risbaru.png" width="170"/>
+              <a href="/"style={styleNav}>
+                  <img alt="Logo" className="text-left" src="https://system.rhr.co.id/images/risbaru.png" width="170"/>
               </a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -70,7 +74,7 @@ const App = () => {
             <ul>
             <li className="nav-item ml-5">
               <Link to={"/home"} className="nav-link">
-                Home
+                Dashboard
               </Link>
             </li>
 
@@ -129,7 +133,7 @@ const App = () => {
           </div>
         </nav>
         <nav className="navbar navbar-expand-md navbar-light bg-white shadow-sm" style={myStyle}>
-            <div className="container-fluid ml-3">
+            <div className="container-fluid">
                 <nav aria-label="breadcrumb">
                   <ol className="breadcrumb">
                     <li className="breadcrumb-item">Home</li>
