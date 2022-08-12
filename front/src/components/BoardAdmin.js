@@ -31,7 +31,7 @@ const BoardAdmin = () => {
   return (
     <div className="container">
         <div className="card">
-            <h3>{content}</h3>
+          <span>{content}</span>
         </div>
     </div>
   );

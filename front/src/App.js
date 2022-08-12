@@ -14,9 +14,10 @@ import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
-
 
 import { logout } from "./slices/auth";
 
@@ -24,13 +25,13 @@ import EventBus from "./common/EventBus";
 
 const App = () => {
   const myStyle = {
-      borderTop: "1px outset",
+    borderTop: "1px outset",
   };
   const styleNav = {
-      padding: "5px",
+    padding: "0px",
   };
   const upperCase = {
-      textTransform: "capitalize"
+    textTransform: "capitalize"
   }
 
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -64,7 +65,76 @@ const App = () => {
   return (
     <Router>
       <div>
-        <nav className="navbar navbar-expand-md navbar-light bg-white shadow-sm ml-0">
+        <Navbar bg="white" expand="lg">
+          <Container>
+            <Navbar.Brand href="/" style={styleNav}>
+              <img alt="Logo" className="text-left" src="https://system.rhr.co.id/images/risbaru.png" width="165" />
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                  <Navbar.Collapse id="basic-navbar-nav" className="ml-5">
+                    <Nav className="me-auto">
+                      <Nav.Link href="/home">Home</Nav.Link>
+                      {showModeratorBoard && (
+                        <li className="nav-item">
+                          <Nav.Link href="/mod">Moderator Board</Nav.Link>
+                          {/* <Link to={"/mod"} className="nav-link">
+                        Moderator Board
+                      </Link> */}
+                        </li>
+                      )}
+                      {showAdminBoard && (
+                        <li className="nav-item">
+                          <Nav.Link href="/admin">Admin Board</Nav.Link>
+                          {/* <Link to={"/admin"} className="nav-link">
+                        Admin Board
+                      </Link> */}
+                        </li>
+                      )}
+                      {currentUser && (
+                        <li className="nav-item">
+                          <Nav.Link href="/user">User</Nav.Link>
+                          {/* <Link to={"/user"} className="nav-link">
+                          User
+                      </Link> */}
+                        </li>
+                      )}
+
+                    </Nav>
+                  </Navbar.Collapse>
+                  {currentUser ? (
+                <ul className="navbar-nav ms-auto">
+                  <NavDropdown className="mt-2">
+                    <NavDropdown.Item>
+                      <span style={upperCase}>{currentUser.username}</span>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/login" onClick={logOut}>
+                      Log Out
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                  <img
+                    className="mt-1"
+                    width="30px" height="30"
+                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.6MEn1wZkViQK-XUfpCl4ogHaHv%26pid%3DApi&f=1">
+                  </img>
+                </ul>
+              ) : (
+                <div className="navbar-nav ml-auto">
+                  <li className="nav-item">
+                    <Link to={"/login"} className="nav-link">
+                      Login
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to={"/register"} className="nav-link">
+                      Sign Up
+                    </Link>
+                  </li>
+                </div>
+              )}
+          </Container>
+        </Navbar>
+
+        {/* <nav className="navbar navbar-expand-md navbar-light bg-white shadow-sm ml-0">
             <a href="/"style={styleNav}>
                 <img alt="Logo" className="text-left" src="https://system.rhr.co.id/images/risbaru.png" width="165"/>
             </a>
@@ -105,41 +175,6 @@ const App = () => {
             )}
             </ul>
             {currentUser ? (
-            // <div className="navbar-nav ml-auto">
-            //   <li className="nav-item">
-            //     <Link to={"/profile"} className="nav-link" style={upperCase}>
-            //       {currentUser.username}
-            //     </Link>
-            //   </li>
-            //   <li className="nav-item">
-            //     <a href="/login" className="nav-link" onClick={logOut}>
-            //       LogOut
-            //     </a>
-            //   </li>
-            // </div>
-
-          //   <div>
-          //     <Menu theme="dark" defaultActive="1" className="el-menu-demo" mode="horizontal" onSelect={this.onSelect.bind(this)}>
-          //       <Menu.Item index="1">Processing Center</Menu.Item>
-          //       <Menu.SubMenu index="2" title="Workspace">
-          //         <Menu.Item index="2-1">Option 1</Menu.Item>
-          //         <Menu.Item index="2-2">Option 2</Menu.Item>
-          //         <Menu.Item index="2-3">Option 3</Menu.Item>
-          //       </Menu.SubMenu>
-          //       <Menu.Item index="3">Orders</Menu.Item>
-          //     </Menu>
-          //     <div className="line"></div>
-          //     <Menu defaultActive="1" className="el-menu-demo" mode="horizontal" onSelect={this.onSelect.bind(this)}>
-          //       <Menu.Item index="1">Processing Center</Menu.Item>
-          //       <Menu.SubMenu index="2" title="Workspace">
-          //         <Menu.Item index="2-1">Option 1</Menu.Item>
-          //         <Menu.Item index="2-2">Option 2</Menu.Item>
-          //         <Menu.Item index="2-3">Option 3</Menu.Item>
-          //       </Menu.SubMenu>
-          //       <Menu.Item index="3">Orders</Menu.Item>
-          //     </Menu>
-          // </div>
-
             <div className="container">
                 <ul className="navbar-nav ms-auto">
                     <img
@@ -147,15 +182,16 @@ const App = () => {
                         width="30px" height="30" 
                         src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.6MEn1wZkViQK-XUfpCl4ogHaHv%26pid%3DApi&f=1">
                     </img>
-                    <NavDropdown>
-                      <NavDropdown.Item>
-                            <span style={upperCase}>{currentUser.username}</span>
-                      </NavDropdown.Item>
-                      <NavDropdown.Item onClick={logOut}>
-                  
-                        Log Out
-                      </NavDropdown.Item>
-                    </NavDropdown>
+                        <NavDropdown>
+                          <NavDropdown.Item>
+                                <span style={upperCase}>{currentUser.username}</span>
+                          </NavDropdown.Item>
+                          <NavDropdown.Item href="/login" onClick={logOut}>
+                            
+                              Log Out
+                        
+                          </NavDropdown.Item>
+                        </NavDropdown>
                 </ul>
               </div>
 
@@ -175,8 +211,10 @@ const App = () => {
             </div>
           )}
           </div>
-        </nav>
-        <nav className="navbar navbar-expand-md navbar-light bg-white shadow-sm" style={myStyle}>
+        </nav> */}
+
+
+        {/* <nav className="navbar navbar-expand-md navbar-light bg-white shadow-sm" style={myStyle}>
             <div className="container-fluid">
                 <nav aria-label="breadcrumb">
                   <ol className="breadcrumb">
@@ -184,8 +222,13 @@ const App = () => {
                   </ol>
                 </nav>
             </div>
-        </nav>
+        </nav> */}
 
+        <Navbar  bg="white" style={myStyle} expand="lg">
+          <Container>
+            <Navbar.Brand className="ml-2" href="/home" style={styleNav}>Home</Navbar.Brand>
+          </Container>
+        </Navbar>
         <div className="container mt-3">
           <Switch>
             <Route exact path={["/", "/home"]} component={Home} />
