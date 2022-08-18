@@ -1528,6 +1528,13 @@
   dependencies:
     "@babel/runtime" "^7.6.2"
 
+"@react-ui-org/react-ui@^0.47.0":
+  "integrity" "sha512-3WBzRtiAm7hjGp4/5HPT3jB2piXLEfkah3j8ESscY6rNGZjYHkL1NWNYFm09ldF12F2cmyy+k3IFnbdEE2m3KA=="
+  "resolved" "https://registry.npmjs.org/@react-ui-org/react-ui/-/react-ui-0.47.0.tgz"
+  "version" "0.47.0"
+  dependencies:
+    "normalize.css" "^8.0.1"
+
 "@reduxjs/toolkit@^1.6.1":
   "integrity" "sha512-pa3nqclCJaZPAyBhruQtiRwtTjottRrVJqziVZcWzI73i6L3miLTtUyWfauwv08HWtiXLx1xGyGt+yLFfW/d0A=="
   "resolved" "https://registry.npmjs.org/@reduxjs/toolkit/-/toolkit-1.6.1.tgz"
@@ -8045,6 +8052,11 @@
   "integrity" "sha512-1OnlAPZ3zgrk8B91HyRj+eVv+kS5u+Z0SCsak6Xil/kmgEia50ga7zfkumayonZrImffAxPU/5WcyGhzetHNPA=="
   "resolved" "https://registry.npmjs.org/normalize-wheel/-/normalize-wheel-1.0.1.tgz"
   "version" "1.0.1"
+
+"normalize.css@^8.0.1":
+  "integrity" "sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg=="
+  "resolved" "https://registry.npmjs.org/normalize.css/-/normalize.css-8.0.1.tgz"
+  "version" "8.0.1"
 
 "npm-run-path@^2.0.0":
   "integrity" "sha1-NakjLfo11wZ7TLLd8jV7GHFTbF8= sha512-lJxZYlT4DW/bRUtFh1MQIWqmLwQfAxnqWG4HhEdjMlkrJYnJn0Jrr2u3mgxqaWsdiBc76TYkTG/mhrnYTuzfHw=="

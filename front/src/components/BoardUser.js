@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import UserService from "../services/user.service";
 import EventBus from "../common/EventBus";
+import { Link } from "react-router-dom";
 
 const BoardUser = () => {
   const [content, setContent] = useState("");
@@ -35,9 +36,9 @@ const BoardUser = () => {
               <div className="card">
                 <div class="card-header px-3"><b>Database</b></div>
                 <ul class="list-group list-group-light list-group-small">
-                  <li class="list-group-item px-3 border-0 active" aria-current="true">
+                  <Link class="list-group-item px-3 border-0 active" aria-current="true">
                      Komersial
-                  </li>
+                  </Link>
                   <li class="list-group-item px-3">Industri</li>
                   <li class="list-group-item px-3">Agri</li>
                 </ul>

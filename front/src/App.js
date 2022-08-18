@@ -74,6 +74,7 @@ const App = () => {
                   <Navbar.Collapse id="basic-navbar-nav" className="ml-5">
                     <Nav className="me-auto">
                       <Nav.Link href="/home">Home</Nav.Link>
+                      <Nav.Link href="/asset">Asset</Nav.Link>
                       {showModeratorBoard && (
                         <li className="nav-item">
                           <Nav.Link href="/mod">Moderator Board</Nav.Link>
