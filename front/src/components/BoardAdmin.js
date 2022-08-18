@@ -32,6 +32,7 @@ const BoardAdmin = () => {
     <div className="container">
         <div className="card">
           <span>{content}</span>
+          <span>Test Pipeline</span>
         </div>
     </div>
   );
