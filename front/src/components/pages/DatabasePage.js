@@ -47,8 +47,11 @@ const BoardDatabase = () => {
               
           </div>
         </div>
+      
         <div className="col-md-9">
 
+          <span> 4 Data Apartment di Temukan </span>
+      
           {array.map((data, i) => {
             return <div key={i} className="card">
               <div className="d-flex position-relative">
@@ -62,6 +65,7 @@ const BoardDatabase = () => {
                   <h6 className="mt-0">
                     {data.nama}
                   </h6>
+                  <p>{data.alamat}</p>
                   <a className="stretched-link">Detail</a>
                 </div>
               </div>
