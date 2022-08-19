@@ -2,8 +2,7 @@ const db = require("../models");
 const config = require("../config/auth.config");
 const Infoumum = db.infoumum;
 
-exports.submit = (req, res) => {
-
+exports.submitData = (req, res) => {
     // Validate request
     if(!req.body) {
       res.status(400).send({
@@ -18,7 +17,6 @@ exports.submit = (req, res) => {
         alamat : req.body.alamat,
         negara_pembuat : req.body.negara_pembuat
     }
-
 
     //store data
     Infoumum.create(dataumum).then(data => {

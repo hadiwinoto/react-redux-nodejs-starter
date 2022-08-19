@@ -14,6 +14,7 @@ import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
+import Database from "./components/pages/DatabasePage"
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -70,37 +71,29 @@ const App = () => {
             <Navbar.Brand href="/" style={styleNav}>
               <img alt="Logo" className="text-left" src="https://system.rhr.co.id/images/risbaru.png" width="165" />
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                  <Navbar.Collapse id="basic-navbar-nav" className="ml-5">
+               <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                  <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                       <Nav.Link href="/home">Home</Nav.Link>
-                      <Nav.Link href="/asset">Asset</Nav.Link>
+                      <Nav.Link href="/database">Database</Nav.Link>
                       {showModeratorBoard && (
                         <li className="nav-item">
                           <Nav.Link href="/mod">Moderator Board</Nav.Link>
-                          {/* <Link to={"/mod"} className="nav-link">
-                        Moderator Board
-                      </Link> */}
                         </li>
                       )}
                       {showAdminBoard && (
                         <li className="nav-item">
                           <Nav.Link href="/admin">Admin Board</Nav.Link>
-                          {/* <Link to={"/admin"} className="nav-link">
-                        Admin Board
-                      </Link> */}
                         </li>
                       )}
                       {currentUser && (
                         <li className="nav-item">
                           <Nav.Link href="/profile">User</Nav.Link>
-                          {/* <Link to={"/user"} className="nav-link">
-                          User
-                      </Link> */}
                         </li>
                       )}
 
                     </Nav>
+                    
                   </Navbar.Collapse>
                   {currentUser ? (
                 <ul className="navbar-nav ms-auto">
@@ -236,6 +229,7 @@ const App = () => {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/database" component={Database} />
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />

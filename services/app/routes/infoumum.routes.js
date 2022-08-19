@@ -1,12 +1,14 @@
-module.exports = app => {
-  
-  const { authJwt } = require("../middleware");
-  const controller = require("../controllers/infoumum.controller");
+const { authJwt } = require("../middleware");
+const controller = require("../controllers/infoumum.controller");
 
-  var router = require("express").Router();
+module.exports = function(app) {
+  app.use(function(req, res, next) {
+    res.header(
+      "Access-Control-Allow-Headers",
+      "x-access-token, Origin, Content-Type, Accept"
+    );
+    next();
+  });
 
-  router.post("/infoumum",controller.submit);
-
-  app.use("/api",[authJwt.verifyToken],router);
-
+  app.post("/api/infoumum",[authJwt.verifyToken],controller.submitData);
 };

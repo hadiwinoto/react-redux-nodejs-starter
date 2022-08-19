@@ -51,6 +51,7 @@ const BoardUser = () => {
                   <li class="list-group-item px-3">Apartment</li>
                   <li class="list-group-item px-3">Resort</li>
                   <li class="list-group-item px-3">Hotel</li>
+                  <li class="list-group-item px-3">{content}</li>
                 </ul>
               </div>
           </div>
