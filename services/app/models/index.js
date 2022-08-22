@@ -8,7 +8,7 @@ const sequelize = new Sequelize(
   {
     host: config.HOST,
     dialect: config.dialect,
-    operatorsAliases: false,
+    operatorsAliases: 0,
 
     pool: {
       max: config.pool.max,
@@ -26,7 +26,6 @@ db.sequelize = sequelize;
 
 db.user = require("../models/user.model.js")(sequelize, Sequelize);
 db.role = require("../models/role.model.js")(sequelize, Sequelize);
-db.infoumum = require("./infoumum.model.js")(sequelize, Sequelize);
 
 db.role.belongsToMany(db.user, {
   through: "user_roles",

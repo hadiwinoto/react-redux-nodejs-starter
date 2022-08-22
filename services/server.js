@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
@@ -10,29 +11,36 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
-app.use(express.json());
+app.use(bodyParser.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
-
-app.use(function(req, res, next) {
-  res.header(
-    "Access-Control-Allow-Headers",
-    "x-access-token, Origin, Content-Type, Accept"
-  );
-  next();
-});
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // database
 const db = require("./app/models");
 const Role = db.role;
 
-db.sequelize.sync();
+// db.sequelize.sync();
 // force: true will drop the table if it already exists
-// db.sequelize.sync({force: true}).then(() => {
-//   console.log('Drop and Resync Database with { force: true }');
-//   initial();
-// });
+db.sequelize.sync({force: true}).then(() => {
+  console.log('Drop and Resync Database with { force: true }');
+  initial();
+});
+
+// simple route
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome Node Rest API application." });
+});
+
+// routes
+require('./app/routes/auth.routes')(app);
+require('./app/routes/user.routes')(app);
+
+// set port, listen for requests
+const PORT = 8080;
+app.listen(PORT, () => {
+  console.log(`http://localhost:${PORT}`);
+});
 
 function initial() {
   Role.create({
@@ -50,20 +58,3 @@ function initial() {
     name: "admin"
   });
 }
-
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "NODE API Starterkit." });
-});
-
-// routes
-require('./app/routes/auth.routes')(app);
-require('./app/routes/user.routes')(app);
-require('./app/routes/infoumum.routes')(app);
-
-// set port, listen for requests
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
-
