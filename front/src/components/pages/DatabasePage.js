@@ -27,6 +27,7 @@ const BoardDatabase = () => {
   ];
 
   return (
+    
     <div className="container">
       <div className="row">
         <div className="col-md-3">
@@ -50,7 +51,7 @@ const BoardDatabase = () => {
       
         <div className="col-md-9">
 
-          <span> 4 Data Apartment di Temukan </span>
+          <span className="mt-3"> 4 Data Apartment di Temukan </span>
       
           {array.map((data, i) => {
             return <div key={i} className="card">

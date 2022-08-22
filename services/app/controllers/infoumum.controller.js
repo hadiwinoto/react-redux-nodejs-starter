@@ -12,6 +12,7 @@ exports.submitData = (req, res) => {
       return;
     }
     const dataumum = {
+        id    : req.body.id,
         name : req.body.name,
         jenis : req.body.jenis,
         alamat : req.body.alamat,
