@@ -76,7 +76,7 @@ const App = () => {
                   <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                       <Nav.Link href="/home">Home</Nav.Link>
-                      <Nav.Link href="/database">Database</Nav.Link>
+                     
                       {showModeratorBoard && (
                         <li className="nav-item">
                           <Nav.Link href="/mod">Moderator Board</Nav.Link>
@@ -84,15 +84,15 @@ const App = () => {
                       )}
                       {showAdminBoard && (
                         <li className="nav-item">
-                          <Nav.Link href="/admin">Admin Board</Nav.Link>
+                          {/* <Nav.Link href="/admin">Admin Board</Nav.Link> */}
+                          <Nav.Link href="/database">Database</Nav.Link>
                         </li>
                       )}
                       {currentUser && (
                         <li className="nav-item">
-                          <Nav.Link href="/profile">User</Nav.Link>
+                          <Nav.Link href="/profile">Profile</Nav.Link>
                         </li>
                       )}
-
                     </Nav>
                     
                   </Navbar.Collapse>

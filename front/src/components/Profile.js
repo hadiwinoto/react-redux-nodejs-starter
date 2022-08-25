@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Redirect } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import { Card, Icon, Image } from 'semantic-ui-react'
 
 const Profile = () => {
   const { user: currentUser } = useSelector((state) => state.auth);
@@ -11,29 +13,28 @@ const Profile = () => {
 
   return (
     <div className="container">
-      <div className="row">
-          <header className="jumbotron">
-        <h3>
-          <strong>{currentUser.username}</strong> Profile
-        </h3>
-      </header>
-      <p>
-        <strong>Token:</strong> {currentUser.accessToken}
-        {currentUser.accessToken}
-      </p>
-      <p>
-        <strong>Id:</strong> {currentUser.id}
-      </p>
-      <p>
-        <strong>Email:</strong> {currentUser.email}
-      </p>
-      <strong>Authorities:</strong>
-      <ul>
-        {currentUser.roles &&
-          currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
-      </ul>
-      </div>
-      
+      <Card>
+        <Image src='https://cdn4.iconfinder.com/data/icons/professional-avatar-5/48/transcriber_avatar_man_profile_professions-512.png' wrapped ui={false} />
+        <Card.Content>
+          <Card.Header>
+            Matthew
+          </Card.Header>
+          <Card.Meta>
+            <span className='date'>Joined in 2015</span>
+          </Card.Meta>
+          <Card.Description>
+            Matthew is a musician living in Nashville.
+          </Card.Description>
+        </Card.Content>
+        <Card.Content extra>
+          <a>
+            <Icon name='user' />
+            22 Friends
+          </a>
+        </Card.Content>
+      </Card>
+
+
     </div>
   );
 };

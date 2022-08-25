@@ -1,30 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-import UserService from "../services/user.service";
-import { Container, Image, Item} from 'semantic-ui-react'
+import { Container, Item} from 'semantic-ui-react'
 
 
 const Home = () => {
-  const [content, setContent] = useState("");
-
-  useEffect(() => {
-    UserService.getPublicContent().then(
-      (response) => {
-        setContent(response.data);
-      },
-      (error) => {
-        const _content =
-          (error.response && error.response.data) ||
-          error.message ||
-          error.toString();
-
-        setContent(_content);
-      }
-    );
-  }, []);
-
+ 
   return (
-    
         <Container>
             <div className="card">
               <Item.Group>
@@ -34,7 +15,7 @@ const Home = () => {
                     <Item.Header as='a'>Header</Item.Header>
                     <Item.Meta>Description</Item.Meta>
                     <Item.Description>
-                      sjfpasjaspfjsjfsfps
+                        
                     </Item.Description>
                     <Item.Extra>Additional Details</Item.Extra>
                   </Item.Content>
@@ -42,7 +23,6 @@ const Home = () => {
                 </Item.Group>
             </div>
         </Container>
-  
   );
 };
 
