@@ -8,8 +8,6 @@ import * as serviceWorker from "./serviceWorker";
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import 'semantic-ui-css/semantic.min.css'
 
-
-
 ReactDOM.render(
   <Provider store={store}>
     <App />

@@ -1,7 +1,5 @@
 import React from "react";
-
 import { Container, Item} from 'semantic-ui-react'
-
 
 const Home = () => {
  
@@ -15,7 +13,7 @@ const Home = () => {
                     <Item.Header as='a'>Header</Item.Header>
                     <Item.Meta>Description</Item.Meta>
                     <Item.Description>
-                        
+                          {/* content */}
                     </Item.Description>
                     <Item.Extra>Additional Details</Item.Extra>
                   </Item.Content>
