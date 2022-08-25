@@ -11,7 +11,8 @@ const Profile = () => {
 
   return (
     <div className="container">
-      <header className="jumbotron">
+      <div className="row">
+          <header className="jumbotron">
         <h3>
           <strong>{currentUser.username}</strong> Profile
         </h3>
@@ -31,6 +32,8 @@ const Profile = () => {
         {currentUser.roles &&
           currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
       </ul>
+      </div>
+      
     </div>
   );
 };

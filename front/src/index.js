@@ -6,6 +6,7 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import 'semantic-ui-css/semantic.min.css'
 
 
 

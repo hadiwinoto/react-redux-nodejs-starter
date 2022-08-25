@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { Container, Image, Item} from 'semantic-ui-react'
 
 const BoardDatabase = () => {
 
@@ -47,8 +48,8 @@ const BoardDatabase = () => {
           </div>
         </div>
       
-        <div className="col-md-9"> <br></br>
-          <span className="mt-2"> 4 Data Apartment di Temukan </span>
+        <div className="col-md-9">
+          {/* <span className="mt-2"> 4 Data Apartment di Temukan </span>
           {array.map((data, i) => {
             return <div key={i} className="card">
               <div className="d-flex position-relative">
@@ -58,16 +59,27 @@ const BoardDatabase = () => {
                   style={{ maxWidth: "12rem" }}
                   alt="..."
                 />
-                <div>
-                  <h6 className="mt-0">
-                    {data.nama}
-                  </h6>
-                  <p>{data.alamat}</p>
-                  <a className="stretched-link">Detail</a>
-                </div>
+                
+                  
+              
               </div>
             </div>
-          })}
+          })} */}
+            {array.map((data, i) => {
+              return <div className="card">
+              <Item.Group>
+                  <Item>
+                    <Item.Image size='tiny' src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads-ssl.webflow.com%2F5ee76fef943b3e292b22aa39%2F5f738c6dc08cdcf660008ec6_apartment_building.jpg&f=1&nofb=1' />
+                    <Item.Content>
+                      <Item.Header as='a'>{data.nama}</Item.Header>
+                      <Item.Extra>Additional Details</Item.Extra>
+                      Alamat : {data.alamat}
+                    </Item.Content>
+                  </Item>
+                </Item.Group>
+              </div>
+            })}
+            
         </div>
       </div>
     </div>
