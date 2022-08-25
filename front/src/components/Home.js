@@ -24,7 +24,7 @@ const Home = () => {
   return (
     <div className="container">
         <div className="card">
-            <span>{content}</span>
+            <span></span>
         </div>
     </div>
   );

@@ -1,18 +1,18 @@
 const jwt = require("jsonwebtoken");
-const config = require("../config/auth.config.js");
+const config = require("../config/auth.js");
 const db = require("../models");
 const User = db.user;
 
 verifyToken = (req, res, next) => {
-  let token = req.headers["x-access-token"];
-
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(' ')[1]
+ 
   if (!token) {
     return res.status(403).send({
       message: "No token provided!"
     });
   }
-
-  jwt.verify(token, config.secret, (err, decoded) => {
+  jwt.sign(token, config.secret, (err,decoded) => {
     if (err) {
       return res.status(401).send({
         message: "Unauthorized!"
@@ -50,7 +50,6 @@ isModerator = (req, res, next) => {
           return;
         }
       }
-
       res.status(403).send({
         message: "Require Moderator Role!"
       });

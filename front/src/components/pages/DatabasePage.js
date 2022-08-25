@@ -10,7 +10,7 @@ const BoardDatabase = () => {
       "alamat": "JL. Pramuka No 123"
     },
     {
-      "id": 2,
+      "id": 2,  
       "nama": "Apartment Green Residence",
       "alamat": "JL. Pramuka No 123"
     },
@@ -27,7 +27,6 @@ const BoardDatabase = () => {
   ];
 
   return (
-    
     <div className="container">
       <div className="row">
         <div className="col-md-3">
@@ -45,14 +44,11 @@ const BoardDatabase = () => {
                       <option>2020</option>
                   </select>
               </div>
-              
           </div>
         </div>
       
-        <div className="col-md-9">
-
-          <span className="mt-3"> 4 Data Apartment di Temukan </span>
-      
+        <div className="col-md-9"> <br></br>
+          <span className="mt-2"> 4 Data Apartment di Temukan </span>
           {array.map((data, i) => {
             return <div key={i} className="card">
               <div className="d-flex position-relative">
