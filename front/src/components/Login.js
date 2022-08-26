@@ -90,6 +90,21 @@ const Login = (props) => {
                 <span>Login</span>
               </button>
             </div>
+
+            {/* <div className="center">
+              <span>Atau</span>
+            </div> */}
+            
+            <div className="form-group">
+              <button type="button" className="btn btn-danger btn-block">
+                {/* {loading && (
+                  <span className="spinner-border spinner-border-sm"></span>
+                )} */}
+                <span><i aria-hidden="true" class="google plus square big icon"></i></span>
+              </button>
+              
+            </div>
+            
           </Form>
         </Formik>
       </div>

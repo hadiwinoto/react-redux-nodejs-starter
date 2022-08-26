@@ -25,6 +25,7 @@ db.user = require("../models/userModel.js")(connectMysql,Sequelize);
 db.role = require("../models/roleModel.js")(connectMysql,Sequelize);
 db.profile = require("../models/profileModel.js")(connectMysql,Sequelize);
 db.dataumum = require("../models/dataUmumModel.js")(connectMysql,Sequelize);
+db.hotel = require("../models/HotelModel.js")(connectMysql,Sequelize);
 
 
 db.role.belongsToMany(db.user, {

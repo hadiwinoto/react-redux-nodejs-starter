@@ -3,7 +3,7 @@ const config = require("../config/auth");
 const User = db.user;
 const Role = db.role;
 const Op = db.Sequelize.Op;
-const uuid = require('uuid');
+
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
